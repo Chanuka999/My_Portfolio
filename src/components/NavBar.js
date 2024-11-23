@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import {Navbar, Container} from "react-bootstrap";
+import {Navbar, Container,Nav} from "react-bootstrap";
 import logo from '../assets/img/logo.svg';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
@@ -8,14 +8,14 @@ import navIcon3 from '../assets/img/nav-icon3.svg';
 
 export const NavBar = () =>{
     const [activeLink, setactiveLink] = useState('home');
-    const [scolled, seScrolled] = useState(false);
+    const [scrolled, seScrolled] = useState(false);
 
     useEffect(() => {
         const onScroll = () =>{
             if(window.scrollY >50){
-                seScrolled[true];
+                seScrolled(true);
             }else{
-                seScrolled[false];
+                seScrolled(false);
             }
         }
 
@@ -48,10 +48,11 @@ export const NavBar = () =>{
                     <a href="#"><img src={navIcon1} alt=""/></a>
                     <a href="#"><img src={navIcon2} alt=""/></a>
                     <a href="#"><img src={navIcon3} alt=""/></a>
-                </div>
-                <button className="vvd" onClick={() => console.log('connect')}><span>Lets Connect</span></button>;
-                
+                    </div>
+                <button className="vvd" onClick={() => console.log('connect')}><span>Lets Connect</span></button>
+              
             </span>
+          
           </Navbar.Collapse>
         </Container>
         </Navbar>
