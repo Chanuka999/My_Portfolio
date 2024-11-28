@@ -1,36 +1,44 @@
 import { Container } from "react-bootstrap";
+import {Nav,Tab,Row ,Col} from "react-bootstrap";
+import { ProjectCard } from "./ProjectCard";
+import colorSharp2 from "../assets/img/color-sharp2.png";
+import projImg1 from "../assets/img/project-img1.png";
+import projImg2 from "../assets/img/project-img2.png";
+import projImg3 from "../assets/img/project-img3.png";
+
+
 
 export const Projects = () => {
-  const project = [
+  const Projects = [
     {
       title: "Bussiness startio",
       description: "development",
-      ImgUrl: projImg,
+      ImgUrl: projImg1,
     },
     {
       title: "Bussiness startio",
       description: "development",
-      ImgUrl: projImg,
+      ImgUrl: projImg2,
     },
     {
       title: "Bussiness startio",
       description: "development",
-      ImgUrl: projImg,
+      ImgUrl: projImg3,
     },
     {
       title: "Bussiness startio",
       description: "development",
-      ImgUrl: projImg,
+      ImgUrl: projImg1,
     },
     {
       title: "Bussiness startio",
       description: "development",
-      ImgUrl: projImg,
+      ImgUrl: projImg2,
     },
     {
       title: "Bussiness startio",
       description: "development",
-      ImgUrl: projImg,
+      ImgUrl: projImg3,
     },
   ];
   return (
@@ -39,7 +47,7 @@ export const Projects = () => {
         <Row>
           <Col>
             <h2>Projects</h2>
-            <P>web developer</P>
+            {/* <P>web developer</P> */}
             <Tab.Container id="projects-tabs" defaultActiveKey="first">
             <Nav variant="pills" defaultActiveKey="/home">
               <Nav.Item>
@@ -54,13 +62,16 @@ export const Projects = () => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-            <Tab.content>
+            <Tab.Content>
                 <Tab.Pane eventKey="first">
                    <Row>
                      {
                         Projects.map((project,index) =>{
                             return (
-                                <p>{project.title}</p>
+                                <ProjectCard
+                                key={index}
+                                {...project}
+                                />
                             )
                         })
                      }
@@ -68,11 +79,12 @@ export const Projects = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">lorem Ipsum</Tab.Pane>
                 <Tab.Pane eventKey="third">lorem Ipsum</Tab.Pane>
-            </Tab.content>
+            </Tab.Content>
             </Tab.Container>
           </Col>
         </Row>
       </Container>
+      <img className="background-image-right" src={colorSharp2} alt="/"></img>
     </section>
-  );
-};
+  )
+}
